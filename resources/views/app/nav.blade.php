@@ -12,13 +12,6 @@
                         <i class="bi-search"></i> Search
                     </a>
                 </li>
-{{--                @foreach($categories as $category)--}}
-{{--                    <li class="nav-item">--}}
-{{--                        <a class="nav-link" href="{{ route('products.index', ['category' => $category->id]) }}">--}}
-{{--                            {{ $category->name }}--}}
-{{--                        </a>--}}
-{{--                    </li>--}}
-{{--                @endforeach--}}
             </ul>
         </div>
     </div>

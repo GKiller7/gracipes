@@ -1,9 +1,9 @@
 <div class="position-relative bg-light rounded-4 border border-1 border-secondary shadow-sm p-3 h-100">
     <!-- Recipe Image -->
     <div class="rounded-4 overflow-hidden">
-        <a href="{{ asset('images/' . $recipe->images->first()->image) }}" data-fancybox="gallery"
+        <a href="{{ asset('img/' . $recipe->images->first()->image) }}" data-fancybox="gallery"
            data-caption="{{ $recipe->name }} #1">
-            <img src="{{ asset('images/' . $recipe->images->first()->image) }}" alt="{{ $recipe->name }}" class="img-fluid rounded-top">
+            <img src="{{ asset('img/' . $recipe->images->first()->image) }}" alt="{{ $recipe->name }}" class="img-fluid rounded-top">
         </a>
     </div>
 
