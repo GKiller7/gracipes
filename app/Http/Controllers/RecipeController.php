@@ -21,4 +21,12 @@ class RecipeController extends Controller
         $recipe = Recipe::with('images', 'ingredients', 'steps')->findOrFail($id);
         return view('recipes.show', compact('recipe'));
     }
+
+    public function view(Request $request, $categoryId)
+    {
+        $category = Category::with('recipes.images')->findOrFail($categoryId);
+        $recipes = $category->recipes;
+
+        return view('recipes.index', compact('category', 'recipes'));
+    }
 }

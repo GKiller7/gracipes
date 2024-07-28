@@ -17,3 +17,8 @@ Route::controller(RecipeController::class)
         Route::get('show/{id}', 'show')->name('show')->where(['id' => '[0-9]+']);
     });
 
+Route::controller(HomeController::class)
+    ->prefix('recipes')
+    ->group(function (){
+        Route::get('/{id}','show')->name('.show');
+    });

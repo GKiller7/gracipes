@@ -25,4 +25,10 @@ class HomeController extends Controller
                 'recipes' => $recipes,
             ]);
     }
+
+    public function show($id)
+    {
+        $recipe = Recipe::with(['images', 'ingredients', 'steps'])->findOrFail($id);
+        return view('recipes.show', compact('recipe'));
+    }
 }
