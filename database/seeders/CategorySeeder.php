@@ -52,7 +52,7 @@ class CategorySeeder extends Seeder
                 'soups/dograma.jpg',
                 'soups/dolama.jpg',
                 'soups/minestrone.jpg',
-                'soups/french_onion_soup.jpg',
+                'soups/french_union_soup.jpg',
                 'soups/gazpacho.jpg',
                 'soups/borscht.jpg',
                 'soups/chicken_noodle_soup.jpg',
