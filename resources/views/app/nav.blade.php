@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-xl navbar-dark bg-dark" aria-label="Navbar">
     <div class="container-xl">
-        <a class="navbar-brand" href="">362</a>
+        <a class="navbar-brand" href="{{ route('home.index') }}">Recipes</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>

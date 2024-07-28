@@ -3,7 +3,7 @@
     <div class="row">
         @foreach($categories as $category)
             <div class="col">
-                <a class="btn btn-danger d-block text-center my-1" href="{{ route('home.index', ['category' => $category->id]) }}">
+                <a class="btn btn-danger d-block text-center my-1" href="{{ route('recipes.index', ['categoryId' => $category->id]) }}">
                     {{ $category->name }}
                 </a>
             </div>
