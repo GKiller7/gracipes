@@ -1,6 +1,6 @@
 <div class="py-4">
-    <div class="h3 mb-4 text-center text-brown">Categories</div>
-    <div class="row g-3">
+    <div class="h3 mb-5 text-center text-brown">Categories</div>
+    <div class="row g-3 mt-4">
         @foreach($categories as $category)
             <div class="col-6 col-md-4 col-lg-3">
                 <div class="card h-100 border-0 shadow-lg rounded-4 position-relative overflow-hidden">
