@@ -1,4 +1,4 @@
-<div class="card border-0 shadow-lg rounded-4" style="height: 75%;">
+<div class="card border-0 shadow-lg rounded-4" style="height: 90%;">
     <!-- Recipe Image -->
     <div class="overflow-hidden rounded-top-4">
         <a href="{{ asset('img/' . $recipe->images->first()->image) }}" data-fancybox="gallery"
@@ -18,7 +18,7 @@
             </h5>
 
             <!-- Favorites Button -->
-            <a class="btn btn-outline-danger btn-sm" href="{{ route('favorites.index', $recipe->id) }}">
+            <a class="btn btn-outline-danger btn-sm" href="{{ route('favorites.add',  ['slug' => $recipe->slug]) }}">
                 <i class="bi bi-heart"></i>
             </a>
         </div>

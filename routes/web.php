@@ -32,7 +32,7 @@ Route::controller(FavoriteController::class)
     ->name('favorites.')
     ->group(function () {
         Route::get('', 'index')->name('index');
-        Route::get('{slug}', 'add')->name('add')->where(['slug' => '[a-z0-9-]+']);
+        Route::get('', 'add')->name('add')->where(['slug' => '[a-z0-9-]+']);
     });
 
 Route::middleware('guest')
