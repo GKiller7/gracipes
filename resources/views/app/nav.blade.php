@@ -1,5 +1,5 @@
-<nav class="navbar navbar-expand-xl navbar-dark bg-brown shadow-sm" aria-label="Navbar">
-    <div class="container-xl">
+<nav class="navbar navbar-expand-lg navbar-dark bg-brown shadow-sm" aria-label="Navbar">
+    <div class="container-lg">
         <a class="navbar-brand fw-bold" href="{{ route('home.index') }}">Recipes</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -47,9 +47,15 @@
         background-color: #8B4513; /* Brown background */
     }
 
+    .navbar {
+        padding: 0.5rem 1rem; /* Reduced padding for a slimmer look */
+    }
+
     .navbar-brand {
-        font-size: 1.5rem;
+        font-size: 1.25rem; /* Smaller font size */
         color: #fff;
+        font-weight: 600; /* Slightly less bold */
+        letter-spacing: 0.5px;
     }
 
     .navbar-brand:hover {
@@ -57,18 +63,19 @@
     }
 
     .nav-link {
-        font-size: 1rem;
+        font-size: 0.9rem; /* Slightly smaller font size */
         color: #fff;
-        transition: color 0.3s ease;
+        transition: color 0.3s ease, transform 0.3s ease;
     }
 
     .nav-link:hover {
         color: #FFD700; /* Gold color on hover */
+        transform: scale(1.05); /* Slightly enlarge on hover */
     }
 
     .nav-link.active {
         color: #FFD700; /* Gold color for active link */
-        font-weight: bold;
+        font-weight: 600; /* Slightly less bold */
     }
 
     .navbar-toggler {
@@ -77,5 +84,24 @@
 
     .navbar-toggler-icon {
         background-image: url('data:image/svg+xml;charset=utf8,%3Csvg viewBox="0 0 30 30" xmlns="http://www.w3.org/2000/svg"%3E%3Cpath stroke="rgba%288, 8, 8, 0.5%29" stroke-width="2" linecap="round" linejoin="round" d="M4 7h22M4 15h22M4 23h22"/%3E%3C/svg%3E');
+    }
+
+    /* Enhanced navbar dropdown */
+    .navbar-nav .nav-item .dropdown-menu {
+        background-color: #8B4513;
+        border: none;
+    }
+
+    .navbar-nav .nav-item .dropdown-menu .dropdown-item {
+        color: #fff;
+    }
+
+    .navbar-nav .nav-item .dropdown-menu .dropdown-item:hover {
+        background-color: #A0522D;
+    }
+
+    /* Enhanced navbar link active state */
+    .navbar-nav .nav-item .nav-link.active {
+        border-bottom: 2px solid #FFD700; /* Gold underline for active link */
     }
 </style>
