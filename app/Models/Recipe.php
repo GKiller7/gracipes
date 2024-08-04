@@ -33,8 +33,8 @@ class Recipe extends Model
         return $this->hasMany(Image::class);
     }
 
-//    public function favorites()
-//    {
-//        return $this->belongsTo(Favorite::class);
-//    }
+    public function favorites()
+    {
+        return $this->belongsToMany(Favorite::class);
+    }
 }
