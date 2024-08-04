@@ -8,7 +8,7 @@ class FavoriteController extends Controller
 {
     public function index()
     {
-        $products = Recipe::whereHas('favorites', function ($query) {
+        $recipes = Recipe::whereHas('favorites', function ($query) {
             return $query->where('id', auth()->id());
         })
             ->orderBy('id', 'desc')
@@ -16,7 +16,7 @@ class FavoriteController extends Controller
 
         return view('favorites.index')
             ->with([
-                'products' => $products,
+                'recipes' => $recipes,
             ]);
     }
 

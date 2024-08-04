@@ -4,6 +4,9 @@ use Illuminate\Support\Facades\Route;
 use \App\Http\Controllers\HomeController;
 use \App\Http\Controllers\RecipeController;
 use \App\Http\Controllers\FavoriteController;
+use \App\Http\Controllers\RegisterController;
+use \App\Http\Controllers\LoginController;
+
 
 Route::controller(HomeController::class)
     ->group(function () {
@@ -30,4 +33,17 @@ Route::controller(FavoriteController::class)
     ->group(function () {
         Route::get('', 'index')->name('index');
         Route::get('{slug}', 'add')->name('add')->where(['slug' => '[a-z0-9-]+']);
+    });
+
+Route::middleware('guest')
+    ->group(function () {
+        Route::get('register', [RegisterController::class, 'create'])->name('register');
+        Route::post('register', [RegisterController::class, 'store']);
+        Route::get('login', [LoginController::class, 'create'])->name('login');
+        Route::post('login', [LoginController::class, 'store']);
+    });
+
+Route::middleware('auth')
+    ->group(function () {
+        Route::post('logout', [LoginController::class, 'destroy'])->name('logout');
     });

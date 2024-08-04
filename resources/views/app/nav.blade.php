@@ -5,19 +5,37 @@
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbar">
-            <ul class="navbar-nav ms-auto mb-2 mb-xl-0">
-                <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="{{ route('home.index') }}">Home</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Favorites</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">About</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Contact</a>
-                </li>
+            <ul class="navbar-nav ms-auto">
+                @auth
+                    <li class="nav-item">
+                        <a class="nav-link link-warning" href="{{ route('favorites.index') }}">
+                            <i class="bi-heart-fill"></i> Favorites
+                        </a>
+                    </li>
+                @endauth
+                @auth
+                    <li class="nav-item">
+                        <a class="nav-link link-warning" href="#"
+                           onclick="event.preventDefault(); document.getElementById('logout').submit();">
+                            <i class="bi-box-arrow-right"></i> Logout
+                            {{ auth()->user()->name }}
+                        </a>
+                        <form method="POST" action="{{ route('logout') }}" id="logout">
+                            @csrf
+                        </form>
+                    </li>
+                @else
+                    <li class="nav-item">
+                        <a class="nav-link link-warning" href="{{ route('login') }}">
+                            <i class="bi-box-arrow-in-right"></i> Login
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link link-warning" href="{{ route('register') }}">
+                            <i class="bi-person-plus"></i> Register
+                        </a>
+                    </li>
+                @endauth
             </ul>
         </div>
     </div>

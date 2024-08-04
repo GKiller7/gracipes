@@ -35,6 +35,6 @@ class Recipe extends Model
 
     public function favorites()
     {
-        return $this->belongsToMany(Favorite::class);
+        return $this->belongsToMany(User::class, 'user_product');
     }
 }
