@@ -8,10 +8,11 @@
             <ul class="navbar-nav ms-auto">
                 @auth
                     <li class="nav-item">
-                        <a class="nav-link link-warning" href="{{ route('favorites.index') }}">
+                        <a class="nav-link link-warning" href="#">
                             <i class="bi-heart-fill"></i> Favorites
                         </a>
                     </li>
+{{--                    {{ route('favorites.index') }}--}}
                 @endauth
                 @auth
                     <li class="nav-item">

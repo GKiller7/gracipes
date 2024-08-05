@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Category;
 use App\Models\Recipe;
 
 class FavoriteController extends Controller
@@ -16,6 +17,38 @@ class FavoriteController extends Controller
 
         return view('favorites.index')
             ->with([
+                'recipes' => $recipes,
+            ]);
+    }
+
+    public function app()
+    {
+        $recipes = Recipe::whereHas('favorites', function ($query) {
+            return $query->where('id', auth()->id());
+        })
+            ->orderBy('id', 'desc')
+            ->paginate(30);
+
+        return view('app.nav')
+            ->with([
+                'recipes' => $recipes,
+            ]);
+    }
+
+    public function favorites()
+    {
+        $categories = Category::with('recipes.images')
+            ->with('recipes')
+            ->orderBy('name')
+            ->get();
+
+        $recipes = Recipe::with('images')
+            ->orderBy('name', 'desc')
+            ->get();
+
+        return view('app.nav')
+            ->with([
+                'categories' => $categories,
                 'recipes' => $recipes,
             ]);
     }

@@ -35,6 +35,12 @@ Route::controller(FavoriteController::class)
         Route::get('', 'add')->name('add')->where(['slug' => '[a-z0-9-]+']);
     });
 
+//Route::controller(FavoriteController::class)
+//    ->group(function () {
+//    Route::get('app', 'app')->name('app.nav');
+//    Route::get('favorites', 'favorites')->name('app.nav');
+//});
+
 Route::middleware('guest')
     ->group(function () {
         Route::get('register', [RegisterController::class, 'create'])->name('register');

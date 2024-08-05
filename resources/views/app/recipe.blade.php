@@ -7,11 +7,13 @@
         </a>
         <div class="position-absolute top-0 end-0 p-2">
             <!-- Favorites Button -->
-            <a class="btn btn-outline-danger btn-sm rounded-circle" href="{{ route('favorites.add',  ['slug' => $recipe->slug]) }}">
+            <a class="btn btn-outline-danger btn-sm rounded-circle" href="#">
                 <i class="bi bi-heart"></i>
             </a>
         </div>
     </div>
+
+{{--{{ route('favorites.add') }}--}}
 
     <!-- Recipe Details -->
     <div class="card-body d-flex flex-column p-4">
