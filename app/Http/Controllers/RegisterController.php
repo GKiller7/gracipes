@@ -35,6 +35,6 @@ class RegisterController extends Controller
 
         Auth::login($user);
 
-        return to_route('home');
+        return to_route('home.index');
     }
 }

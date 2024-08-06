@@ -1,20 +1,20 @@
-<div class="card border-0 shadow-lg rounded-4" style="height: 100%; max-width: 20rem; margin: auto;">
+<div class="card border-0 shadow-lg rounded-4 d-flex flex-row align-items-stretch" style="max-width: 40rem; margin: auto; height: 25rem;">
     <!-- Recipe Image -->
-    <div class="overflow-hidden rounded-top-4 position-relative">
+    <div class="overflow-hidden rounded-start-4 position-relative" style="width: 40%; height: 100%;">
         <a href="{{ asset('img/' . $recipe->images->first()->image) }}" data-fancybox="gallery"
            data-caption="{{ $recipe->name }}">
-            <img src="{{ asset('img/' . $recipe->images->first()->image) }}" alt="{{ $recipe->name }}" class="img-fluid w-100 rounded-top-4">
+            <img src="{{ asset('img/' . $recipe->images->first()->image) }}" alt="{{ $recipe->name }}" class="img-fluid h-100 w-100 object-fit-cover rounded-start-4">
         </a>
         <div class="position-absolute top-0 end-0 p-2">
             <!-- Favorites Button -->
-            <a class="btn btn-outline-danger btn-sm rounded-circle {{ auth()->user()->favorites->contains($recipe->id) ? 'btn-danger' : '' }}" href="{{ route('favorites.add', $recipe->slug) }}">
-                <i class="bi bi-heart{{ auth()->user()->favorites->contains($recipe->id) ? '-fill' : '' }}"></i>
+            <a class="btn btn-outline-danger btn-sm rounded-circle" href="{{ route('favorites.add', $recipe->slug) }}">
+                <i class="bi bi-heart"></i>
             </a>
         </div>
     </div>
 
     <!-- Recipe Details -->
-    <div class="card-body d-flex flex-column p-4">
+    <div class="card-body d-flex flex-column p-4" style="width: 60%; height: 100%;">
         <h5 class="card-title text-dark fw-bold mb-2">
             <a class="text-decoration-none text-dark" href="{{ route('recipes.show', $recipe->id) }}">
                 {{ $recipe->name }}
@@ -87,24 +87,7 @@
         color: #8B4513; /* Change color on hover */
     }
 
-    .btn-danger {
-        background-color: #dc3545;
-        border-color: #dc3545;
-        color: white;
-    }
-
     .btn-outline-danger {
-        border: 2px solid #dc3545;
-        color: #dc3545;
-    }
-
-    .btn-outline-danger.btn-danger {
-        background-color: #dc3545;
-        border-color: #dc3545;
-        color: white;
-    }
-
-    .btn-outline-danger:hover {
         background-color: #dc3545;
         border-color: #dc3545;
         color: white;

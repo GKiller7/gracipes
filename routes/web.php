@@ -32,14 +32,13 @@ Route::controller(FavoriteController::class)
     ->name('favorites.')
     ->group(function () {
         Route::get('', 'index')->name('index');
-        Route::get('', 'add')->name('add')->where(['slug' => '[a-z0-9-]+']);
+        Route::get('{slug}', 'add')->name('add')->where(['slug' => '[a-z0-9-]+']);
     });
 
-//Route::controller(FavoriteController::class)
-//    ->group(function () {
-//    Route::get('app', 'app')->name('app.nav');
-//    Route::get('favorites', 'favorites')->name('app.nav');
-//});
+Route::controller(FavoriteController::class)
+    ->group(function () {
+    Route::get('favorites', 'app')->name('favorites.index');
+});
 
 Route::middleware('guest')
     ->group(function () {

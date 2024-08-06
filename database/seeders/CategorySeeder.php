@@ -8,8 +8,9 @@ use App\Models\Ingredient;
 use App\Models\Recipe;
 use App\Models\Step;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Str;
 
-class CategorySeeder extends Seeder
+class   CategorySeeder extends Seeder
 {
     public function run()
     {
@@ -111,6 +112,7 @@ class CategorySeeder extends Seeder
         foreach ($categories as $category_name) {
             $category = Category::create([
                 'name' => $category_name['name'],
+                'slug' => Str::slug($category_name['name']),
             ]);
 
             foreach ($category_name['recipe_names'] as $index => $recipe_name) {
@@ -119,6 +121,7 @@ class CategorySeeder extends Seeder
                     'name' => $recipe_name,
                     'description' => fake()->paragraph(),
                     'rating' => fake()->randomFloat(2, 0, 5),
+                    'slug' => Str::slug($recipe_name),
                 ]);
 
                 Image::create([

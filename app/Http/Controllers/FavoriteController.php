@@ -29,7 +29,7 @@ class FavoriteController extends Controller
             ->orderBy('id', 'desc')
             ->paginate(30);
 
-        return view('app.nav')
+        return view('favorites.index')
             ->with([
                 'recipes' => $recipes,
             ]);
@@ -55,11 +55,17 @@ class FavoriteController extends Controller
 
     public function add($slug)
     {
+        // Oturum açmış bir kullanıcı olup olmadığını kontrol et
+        $user = auth()->user();
+        if (!$user) {
+            return redirect()->route('login')->with('error', 'You must be logged in to add favorites.');
+        }
+
         $recipe = Recipe::where('slug', $slug)
             ->firstOrFail();
 
-        $user = auth()->user();
         $user->favorites()->toggle($recipe->id);
+
         if ($user->favorites()->where('id', $recipe->id)->count() > 0) {
             $recipe->increment('favorites');
             $success = 'Added to favorites!';

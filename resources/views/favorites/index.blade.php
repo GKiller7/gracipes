@@ -5,10 +5,10 @@
         <div class="h3 mb-3">
             Favorites
         </div>
-        <div class="row row-cols-2 row-cols-sm-3 row-cols-md-4 row-cols-lg-5 g-2 g-sm-3 mb-4">
+        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3 mb-4">
             @forelse($recipes as $recipe)
                 <div class="col">
-                    @include('app.recipe')
+                    @include('app.favorite_recipe')
                 </div>
             @empty
                 <div class="col">
