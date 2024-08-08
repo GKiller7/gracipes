@@ -7,9 +7,15 @@
         </a>
         <div class="position-absolute top-0 end-0 p-2">
             <!-- Favorites Button -->
-            <a class="btn btn-outline-danger btn-sm rounded-circle {{ auth()->user()->favorites->contains($recipe->id) ? 'btn-danger' : '' }}" href="{{ route('favorites.add', $recipe->slug) }}">
-                <i class="bi bi-heart{{ auth()->user()->favorites->contains($recipe->id) ? '-fill' : '' }}"></i>
-            </a>
+            @auth
+                <a class="btn btn-outline-danger btn-sm rounded-circle {{ auth()->user()->favorites->contains($recipe->id) ? 'btn-danger' : '' }}" href="{{ route('favorites.add', $recipe->slug) }}">
+                    <i class="bi bi-heart{{ auth()->user()->favorites->contains($recipe->id) ? '-fill' : '' }}"></i>
+                </a>
+            @else
+                <a class="btn btn-outline-danger btn-sm rounded-circle" href="{{ route('login') }}">
+                    <i class="bi bi-heart"></i>
+                </a>
+            @endauth
         </div>
     </div>
 

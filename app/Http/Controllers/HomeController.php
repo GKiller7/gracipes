@@ -15,7 +15,7 @@ class HomeController extends Controller
             ->orderBy('name')
             ->get();
 
-        $recipes = Recipe::with('images')
+        return $recipes = Recipe::with('images')
             ->orderBy('name', 'desc')
             ->get();
 

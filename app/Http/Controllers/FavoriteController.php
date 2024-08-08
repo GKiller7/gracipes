@@ -55,7 +55,7 @@ class FavoriteController extends Controller
 
     public function add($slug)
     {
-        // Oturum açmış bir kullanıcı olup olmadığını kontrol et
+
         $user = auth()->user();
         if (!$user) {
             return redirect()->route('login')->with('error', 'You must be logged in to add favorites.');
